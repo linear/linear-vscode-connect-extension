@@ -12,7 +12,7 @@ const OAUTH_CLIENT_ID = "55d657b37f9a89be526a866191e89322";
 const OAUTH_CLIENT_SECRET = "2ae7d669277c0a89e9531db95347b38e"; // Not really that secret, eh? @see https://www.oauth.com/oauth2-servers/single-page-apps/
 const OAUTH_AUTHORIZE_URL = "https://linear.app/oauth/authorize";
 const OAUTH_TOKEN_URL = "https://api.linear.app/oauth/token";
-const OAUTH_REDIRECT_URL = `${vscode.env.uriScheme}://linear.linearapp/callback`;
+const OAUTH_REDIRECT_URL = `${vscode.env.uriScheme}://linear.linear-connect/callback`;
 
 // Extension secrets storage key.
 const SECRET_STORAGE_KEY = "linear.auth";
@@ -33,7 +33,7 @@ export class LinearAuthenticationProvider
       vscode.window.registerUriHandler(this.uriEventHandler),
       // Register the auth provider
       vscode.authentication.registerAuthenticationProvider(
-        "linearapp",
+        "linear",
         "Linear",
         this,
         { supportsMultipleAccounts: false }
