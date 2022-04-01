@@ -35,20 +35,19 @@ const session = await vscode.authentication.getSession(
   { createIfNone: true }
 );
 
-if (!session) {
-  vscode.window.showErrorMessage(
-    `We weren't able to log you into Linear when trying to open the issue.`
+if (session) {
+  const linearClient = new LinearClient({
+    accessToken: session.accessToken,
+  });
+
+  console.log("Acquired a Linear API session", {
+    account: session.account,
+  });
+} else {
+  console.error(
+    "Something went wrong, could not acquire a Linear API session."
   );
-  return;
 }
-
-const linearClient = new LinearClient({
-  accessToken: session.accessToken,
-});
-
-console.log("Acquired a Linear API session", {
-  account: session.account,
-});
 ```
 
-For a finished extension using `linear-connect` to authenticate you can check out our own "Open issue in Linear" extension.
+To see a demo of how to use it in practice, check out our simple [Open issue in Linear](https://github.com/linear/linear-vscode-open-issue) extension.
