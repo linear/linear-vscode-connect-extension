@@ -6,6 +6,7 @@
   "author": "Linear Orbit, Inc",
   "license": "MIT",
   "version": "1.0.0",
+  "icon": "assets/128x128.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/linear/linear-vscode-connect-extension"
@@ -17,7 +18,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onAuthenticationRequest:linear"
+    "onAuthenticationRequest:linear",
+    "onCommand:linear-connect.logout"
   ],
   "capabilities": {
     "virtualWorkspaces": true,
@@ -27,6 +29,13 @@
   },
   "main": "./dist/main.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "linear-connect.logout",
+        "title": "Linear: Logout all Linear API sessions",
+        "when": "linear-connect.hasLinearSessions"
+      }
+    ],
     "authentication": [
       {
         "label": "Linear",

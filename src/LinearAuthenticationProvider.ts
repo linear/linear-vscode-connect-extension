@@ -8,8 +8,9 @@ import assert = require("assert");
  * Linear OAuth details
  * @see https://developers.linear.app/docs/oauth/authentication
  */
-const OAUTH_CLIENT_ID = "55d657b37f9a89be526a866191e89322";
-const OAUTH_CLIENT_SECRET = "2ae7d669277c0a89e9531db95347b38e"; // Not really that secret, eh? @see https://www.oauth.com/oauth2-servers/single-page-apps/
+
+const OAUTH_CLIENT_ID = "3117bb53c858872ff5cd4f9e0b3d0b5d";
+const OAUTH_CLIENT_SECRET = "2cafd5d87b5fab6937ea3e157504dbd3"; // Not really that secret, eh? @see https://www.oauth.com/oauth2-servers/single-page-apps/
 const OAUTH_AUTHORIZE_URL = "https://linear.app/oauth/authorize";
 const OAUTH_TOKEN_URL = "https://api.linear.app/oauth/token";
 const OAUTH_REDIRECT_URL = `${vscode.env.uriScheme}://linear.linear-connect/callback`;
@@ -160,6 +161,7 @@ export class LinearAuthenticationProvider
       ["response_type", "code"],
       ["scope", "read"],
       ["state", state],
+      ["prompt", "consent"],
     ]);
 
     const authorizeUri = vscode.Uri.parse(
