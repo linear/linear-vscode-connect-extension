@@ -1,0 +1,70 @@
+{
+  "name": "linear-connect",
+  "displayName": "Linear Connect",
+  "description": "Official Linear API authentication provider for VS Code. Connect VS Code to the Linear API.",
+  "publisher": "linear",
+  "author": "Linear Orbit, Inc",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linear/linear-vscode-connect-extension"
+  },
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:linear-connect.auth",
+    "onAuthenticationRequest:linear-connect"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "authentication": [
+      {
+        "label": "Linear",
+        "id": "linear-connect"
+      }
+    ],
+    "commands": [
+      {
+        "command": "linear-connect.auth",
+        "title": "Auth Linear"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "14.x",
+    "@types/node-fetch": "^2.6.1",
+    "@types/uuid": "^8.3.4",
+    "@types/vscode": "^1.65.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.11.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.2.2",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@linear/sdk": "^1.22.0",
+    "node-fetch": "2.6.7",
+    "uuid": "^8.3.2"
+  }
+}
