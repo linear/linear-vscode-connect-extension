@@ -1,11 +1,11 @@
 {
   "name": "linear-connect",
   "displayName": "Linear Connect",
-  "description": "Official Linear API authentication provider for VS Code. Connect VS Code to the Linear API.",
+  "description": "Official Linear API authentication provider for VS Code. Use this in your extension to easily connect to the Linear API.",
   "publisher": "linear",
   "author": "Linear Orbit, Inc",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "assets/128x128.png",
   "repository": {
     "type": "git",
