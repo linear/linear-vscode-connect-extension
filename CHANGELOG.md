@@ -2,6 +2,11 @@
 
 All notable changes to the "linear-connect" extension will be documented in this file.
 
+
+## [1.0.3] - 2022-05-19
+
+- Correctly pass along requested auth scopes
+
 ## [1.0.2] - 2022-04-04
 
 - Assets change
