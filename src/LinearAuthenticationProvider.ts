@@ -71,7 +71,7 @@ export class LinearAuthenticationProvider
       return existingSession;
     }
 
-    const token = await this.login();
+    const token = await this.login(scopes);
     if (!token) {
       vscode.window.showErrorMessage(
         "There was a problem trying to authenticate with Linear!"
@@ -152,14 +152,14 @@ export class LinearAuthenticationProvider
 
   // -- Private interface
 
-  private async login(): Promise<string> {
+  private async login(scopes: string[]): Promise<string> {
     const state = uuid();
 
     const searchParams = new URLSearchParams([
       ["client_id", OAUTH_CLIENT_ID],
       ["redirect_uri", OAUTH_REDIRECT_URL],
       ["response_type", "code"],
-      ["scope", "read"],
+      ["scope", scopes],
       ["state", state],
       ["prompt", "consent"],
     ]);
