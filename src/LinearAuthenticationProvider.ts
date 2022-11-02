@@ -159,7 +159,7 @@ export class LinearAuthenticationProvider
       ["client_id", OAUTH_CLIENT_ID],
       ["redirect_uri", OAUTH_REDIRECT_URL],
       ["response_type", "code"],
-      ["scope", scopes],
+      ["scope", scopes.join(",")],
       ["state", state],
       ["prompt", "consent"],
     ]);
